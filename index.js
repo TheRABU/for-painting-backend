@@ -167,6 +167,12 @@ async function run() {
       res.send(result);
     });
 
+    // get each user who have been used the app
+    app.get("/user-all-crafts-list", async (req, res) => {
+      const result = await myProductCollections.find().toArray();
+      res.send(result);
+    });
+
     app.delete("/user-items/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
@@ -175,7 +181,6 @@ async function run() {
       res.send(result);
     });
 
-    // app.put("/user-items/:id", async (req, res) => {
     //   const id = req.params.id;
     //   const updatedData = req.body;
     //   try {
