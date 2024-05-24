@@ -40,10 +40,14 @@ async function run() {
 
     //get details/view details of a single card
     app.get("/view-details/craft/:id", async (req, res) => {
-      const id = req.params.id;
-      const query = { _id: new ObjectId(id) };
-      const result = await artAndCraftCollections.findOne(query);
-      res.send(result);
+      try {
+        const id = req.params.id;
+        const query = { _id: new ObjectId(id) };
+        const result = await artAndCraftCollections.findOne(query);
+        res.send(result);
+      } catch (error) {
+        console.error("Error Message:", error);
+      }
     });
 
     // add arts and craft
