@@ -47,12 +47,12 @@ async function run() {
     });
 
     // add arts and craft
-    // app.post("/add-crafts", async (req, res) => {
-    //   const craft = req.body;
-    //   console.log("new art and craft added", craft);
-    //   const result = await artAndCraftCollections.insertOne(craft);
-    //   res.send(result);
-    // });
+    app.post("/add-crafts", async (req, res) => {
+      const craft = req.body;
+      console.log("new art and craft added", craft);
+      const result = await artAndCraftCollections.insertOne(craft);
+      res.send(result);
+    });
     // update single art and craft
     // app.put("/update-crafts/craft/:id", async (req, res) => {
     //   const id = req.params.id;
