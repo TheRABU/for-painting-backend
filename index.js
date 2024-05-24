@@ -54,32 +54,32 @@ async function run() {
       res.send(result);
     });
     // update single art and craft
-    // app.put("/update-crafts/craft/:id", async (req, res) => {
-    //   const id = req.params.id;
-    //   const filter = { _id: new ObjectId(id) };
-    //   const options = { upsert: true };
-    //   const updatedCraft = req.body;
+    app.put("/update-crafts/craft/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const options = { upsert: true };
+      const updatedCraft = req.body;
 
-    //   const craft = {
-    //     $set: {
-    //       image: updatedCraft.image,
-    //       item_name: updatedCraft.item_name,
-    //       subcategory_name: updatedCraft.subcategory_name,
-    //       short_description: updatedCraft.short_description,
-    //       price: updatedCraft.price,
-    //       rating: updatedCraft.rating,
-    //       customization: updatedCraft.customization,
-    //       processing_time: updatedCraft.processing_time,
-    //       stockStatus: updatedCraft.stockStatus,
-    //     },
-    //   };
-    //   const result = await artAndCraftCollections.updateOne(
-    //     filter,
-    //     craft,
-    //     options
-    //   );
-    //   res.send(result);
-    // });
+      const craft = {
+        $set: {
+          image: updatedCraft.image,
+          item_name: updatedCraft.item_name,
+          subcategory_name: updatedCraft.subcategory_name,
+          short_description: updatedCraft.short_description,
+          price: updatedCraft.price,
+          rating: updatedCraft.rating,
+          customization: updatedCraft.customization,
+          processing_time: updatedCraft.processing_time,
+          stockStatus: updatedCraft.stockStatus,
+        },
+      };
+      const result = await artAndCraftCollections.updateOne(
+        filter,
+        craft,
+        options
+      );
+      res.send(result);
+    });
 
     // delete any craft
     // app.delete("/delete-crafts/craft/:id", async (req, res) => {
